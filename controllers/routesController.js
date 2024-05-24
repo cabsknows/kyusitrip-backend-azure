@@ -41,10 +41,10 @@ routesRouter.post('/', async (req, res) => {
     // Use this query with your GraphQL client
     const otpResponse = await request(otpUrl, query, variables);
 
-    new Route ({
-      origin: body.origin,
-      destination: body.destination
-    }).save()
+    // new Route ({
+    //   origin: body.origin,
+    //   destination: body.destination
+    // }).save()
 
     return res.status(201).json({
       message: "Route created successfully",
