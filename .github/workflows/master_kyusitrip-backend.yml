@@ -9,6 +9,18 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+  EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+  HOST: ${{ secrets.HOST }}
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  PASS: ${{ secrets.PASS }}
+  PORT: ${{ secrets.PORT }}
+  REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+  SECURE: ${{ secrets.SECURE }}
+  SERVICE: ${{ secrets.SERVICE }}
+  USER: ${{ secrets.USER }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
