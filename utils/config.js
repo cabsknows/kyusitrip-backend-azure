@@ -8,6 +8,8 @@ const {
   
   MONGODB_URI,
   ACCESS_TOKEN_SECRET,
+  OTP_URL,
+  URL_USED,
 
   HOST,
   SERVICE,
@@ -18,7 +20,7 @@ const {
 } = process.env
 
 // const URL_USED = 'http://localhost:3000'
-const URL_USED = 'https://tq03tq0w-3000.asse.devtunnels.ms'
+// const URL_USED = 'https://tq03tq0w-3000.asse.devtunnels.ms'
 
 const config = {
   PORT,
@@ -30,6 +32,7 @@ const config = {
   SECURE,
   USER,
   PASS,
+  OTP_URL,
   URL_USED
 }
 

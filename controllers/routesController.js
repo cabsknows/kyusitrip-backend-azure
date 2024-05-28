@@ -3,7 +3,6 @@ import Route from '../models/routeModel.js'
 import fs from 'fs'
 import gql from 'graphql-tag'
 import { request } from 'graphql-request'
-import twilio from 'twilio'
 import sendRoutesEmail from '../utils/sendRoutesEmail.js'
 import config from '../utils/config.js'
 
@@ -11,8 +10,7 @@ import config from '../utils/config.js'
 const routesRouter = express.Router()
 
 const query = gql(fs.readFileSync('queries.graphql', 'utf8'));
-const otpUrl = "http://35.226.90.84/otp/routers/default/index/graphql"
-// const otpUrl = "http://localhost:8080/otp/routers/default/index/graphql"
+
 
 routesRouter.post('/', async (req, res) => {
   const body = req.body
@@ -39,7 +37,7 @@ routesRouter.post('/', async (req, res) => {
     console.log(variables)
 
     // Use this query with your GraphQL client
-    const otpResponse = await request(otpUrl, query, variables);
+    const otpResponse = await request(config.OTP_URL, query, variables);
 
     // new Route ({
     //   origin: body.origin,

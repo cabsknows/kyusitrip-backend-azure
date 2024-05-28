@@ -20,6 +20,8 @@ env:
   SECURE: ${{ secrets.SECURE }}
   SERVICE: ${{ secrets.SERVICE }}
   USER: ${{ secrets.USER }}
+  OTP_URL: ${{ secrets.OTP_URL }}
+  URL_USED: ${{ secrets.URL_USED }}
 
 jobs:
   build:
