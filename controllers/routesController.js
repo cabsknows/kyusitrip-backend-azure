@@ -39,7 +39,7 @@ routesRouter.post('/', async (req, res) => {
     console.log(variables)
 
     // Use this query with your GraphQL client
-    const otpResponse = await request(config.OTP_URL, query, variables);
+    const otpResponse = await request("http://35.226.90.84/otp/routers/default/index/graphql", query, variables);
 
     // new Route ({
     //   origin: body.origin,
