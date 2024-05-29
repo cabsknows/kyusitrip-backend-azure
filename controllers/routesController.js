@@ -33,13 +33,13 @@ routesRouter.post('/', async (req, res) => {
       toLat: body.destination.lat,
       toLon: body.destination.lng,
       date: currentDate,
-      time: '18:00'
-      // time: currentTime
+      // time: '18:00'
+      time: currentTime
     };
     console.log(variables)
 
     // Use this query with your GraphQL client
-    const otpResponse = await request("http://35.226.90.84/otp/routers/default/index/graphql", query, variables);
+    const otpResponse = await request(config.OTP_URL, query, variables);
 
     // new Route ({
     //   origin: body.origin,
