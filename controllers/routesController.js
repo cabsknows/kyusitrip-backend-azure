@@ -31,8 +31,8 @@ routesRouter.post('/', async (req, res) => {
       toLat: body.destination.lat,
       toLon: body.destination.lng,
       date: currentDate,
-      // time: '18:00'
-      time: currentTime
+      time: '18:00'
+      // time: currentTime
     };
     console.log(variables)
 
