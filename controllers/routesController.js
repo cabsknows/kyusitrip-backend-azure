@@ -21,6 +21,8 @@ routesRouter.post('/', async (req, res) => {
       })
     }
 
+    console.log(config.OTP_URL)
+
     const date = new Date()
     const currentDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
     const currentTime = `${date.getHours()}:${date.getMinutes()}`
