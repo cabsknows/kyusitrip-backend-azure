@@ -66,7 +66,9 @@ usersRouter.post('/', async (req, res) => {
     if (!validator.isStrongPassword(password, {
       minLength: 6, 
       minLowercase: 1, 
-      minUppercase: 1
+      minUppercase: 1,
+      minNumbers: 0,
+      minSymbols: 0
     })) {
       return res.status(400).json({ 
         message: "Weak Password. Choose a stronger password with at least 6 characters, including uppercase and lowercase letters." })
