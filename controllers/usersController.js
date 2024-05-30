@@ -48,11 +48,10 @@ usersRouter.post('/', async (req, res) => {
     // Email and Password Validation
     if (!emailValidation.test(email) 
         && !validator.isStrongPassword(password, {
-          minLength: 8, minLowercase: 1, minUppercase: 1, 
-          minNumbers: 1, minSymbols: 1 
+          minLength: 6, minLowercase: 1, minUppercase: 1, 
     })) {
       return res.status(400).json({
-        message: "Invalid email format and weak password. Please use the format 'example@gmail.com' and choose a stronger password with at least 8 characters, including uppercase and lowercase letters, numbers, and special symbols."
+        message: "Invalid email format and weak password. Please use the format 'example@gmail.com' and choose a stronger password with at least 6 characters, including uppercase and lowercase letters."
       })
     }
 
@@ -65,14 +64,12 @@ usersRouter.post('/', async (req, res) => {
 
     // Password Validation
     if (!validator.isStrongPassword(password, {
-      minLength: 8, 
+      minLength: 6, 
       minLowercase: 1, 
-      minUppercase: 1, 
-      minNumbers: 1, 
-      minSymbols: 1 
+      minUppercase: 1
     })) {
       return res.status(400).json({ 
-        message: "Weak Password. Choose a stronger password with at least 8 characters, including uppercase and lowercase letters, numbers, and special symbols" })
+        message: "Weak Password. Choose a stronger password with at least 6 characters, including uppercase and lowercase letters." })
     }
 
     // Password Hashing
@@ -95,7 +92,7 @@ usersRouter.post('/', async (req, res) => {
       user.email, 
       user.name,
       url,
-      "Welcome to RouteWise", 
+      "Welcome to KyusiTrip", 
       "account verification process",
       "Thank you for signing up! We're excited to have you on board.",
       "Verify Email",
