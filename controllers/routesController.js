@@ -24,8 +24,13 @@ routesRouter.post('/', async (req, res) => {
     console.log(config.OTP_URL)
 
     const date = new Date()
-    const currentDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
-    const currentTime = `${date.getHours()}:${date.getMinutes()}`
+
+    // Convert current UTC time to the Philippine time (UTC+8)
+    const offset = 8 * 60
+    const philDate = new Date(date.getTime() + offset * 60 * 1000)
+
+    const currentDate = `${philDate.getFullYear()}-${philDate.getMonth()+1}-${philDate.getDate()}`;
+    const currentTime = `${philDate.getHours()}:${String(philDate.getMinutes()).padStart(2, '0')}`;
 
     const variables = {
       fromLat: body.origin.lat,
