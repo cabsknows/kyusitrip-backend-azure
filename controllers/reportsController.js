@@ -70,9 +70,9 @@ reportsRouter.get('/:id', async (req, res) => {
 
 const TTL_DURATIONS = {
   "Traffic": 60 * 60 * 2,
-  "Hazard": 60 * 60 * 6,
+  "Hazard": 60 * 60 * 8,
   "Accident": 60 * 60 * 4,
-  "Flood": 60 * 60 * 2,
+  "Flood": 60 * 60 * 5,
   "Closure": 60 * 60 * 12
 };
 
