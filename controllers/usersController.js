@@ -81,6 +81,7 @@ usersRouter.post('/', async (req, res) => {
       name,
       passwordHash,
       email,
+      verified: true
     }).save()
 
     // Create Token
@@ -89,20 +90,20 @@ usersRouter.post('/', async (req, res) => {
       token: crypto.randomBytes(32).toString('hex')
     }).save()
 
-    const url = `${config.URL_USED}/users/${user._id}/verify/${token.token}`
-    await sendEmail(
-      user.email, 
-      user.name,
-      url,
-      "Welcome to KyusiTrip", 
-      "account verification process",
-      "Thank you for signing up! We're excited to have you on board.",
-      "Verify Email",
-      "If you didn't create an account with us, please disregard this email. It's possible that someone entered your email address mistakenly during the registration process. No action is required on your part."
-    )
+    // const url = `${config.URL_USED}/users/${user._id}/verify/${token.token}`
+    // await sendEmail(
+    //   user.email, 
+    //   user.name,
+    //   url,
+    //   "Welcome to KyusiTrip", 
+    //   "account verification process",
+    //   "Thank you for signing up! We're excited to have you on board.",
+    //   "Verify Email",
+    //   "If you didn't create an account with us, please disregard this email. It's possible that someone entered your email address mistakenly during the registration process. No action is required on your part."
+    // )
     
     res.status(200).json({
-      message: "Registration successful! An email has been sent for account verification.",
+      message: "Your account has been successfully created! You can now start using the application with your registered email.",
     })
 
   } catch (error) {
